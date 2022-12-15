@@ -18,8 +18,10 @@
     "url": "https://github.com/TaraniukD/goit-js-hw-11/issues"
   },
   "dependencies": {
+    "axios": "^1.2.1",
     "modern-normalize": "^1.1.0",
-    "notiflix": "^3.2.5"
+    "notiflix": "^3.2.5",
+    "simplelightbox": "^2.11.0"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
