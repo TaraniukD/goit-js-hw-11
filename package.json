@@ -15,7 +15,7 @@
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/TaraniukD/goit-js-hw-11/issues"
+    "url": "https://github.com/TaraniukD/goit-js-hw-11.git"
   },
   "dependencies": {
     "axios": "^1.2.1",

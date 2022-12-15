@@ -10,8 +10,8 @@ function fetchImg() {
     return fetch(`${BASE_URL}/?key=${myKey}&q=yellow+flowers&image_type=photo&orientation=horizontal&safesearch=true`).then(res => res.json());
 }
 
-fetchImg(cat).then(res => res.json(
-    console.log(res);
+fetchImg().then(res => res.json(
+    console.log(res)
 ));
 
 console.log(21)
