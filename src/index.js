@@ -1,5 +1,4 @@
-import SimpleLightbox from "simplelightbox";
-// Додатковий імпорт стилів
+import axios from 'axios';
 import Notiflix from 'notiflix';
 import "simplelightbox/dist/simple-lightbox.min.css";
 import SimpleLightbox from "simplelightbox";
@@ -13,8 +12,9 @@ const refs = {
     hitsContainer: document.querySelector('.gallery')
 };
 
-console.log(refs.formEl);
-console.log(refs.inputEl);
+const API = axios.create({
+    baseURL: BASE_URL,
+});
 
 refs.formEl.addEventListener('submit', onFormSubmit);
 
@@ -26,26 +26,23 @@ function onFormSubmit(e) {
     })
 }
 
+
+
 function fetchImg({query}) {
     const urlAPI = `${BASE_URL}/?key=${API_KEY}&q=${query}&image_type=photo&orientation=horizontal&safesearch=true`;
+    axios.get (urlAPI)
 
-    try {
-        fetch(urlAPI).then(res => {
-            if (!res.ok) {
-                Notiflix.Notify.warning('Pixabay error'); 
-            }
-             return res.json()
+  .then(res => res.data)
+  .then(({hits}) => {
+        if (hits.length === 0) {
+            Notiflix.Notify.failure('Sorry, there are no images matching your search query. Please try again.'); 
+        }
+     renderHTML(hits)
         })
-        .then(({hits}) => {
-            if (hits.length === 0) {
-                Notiflix.Notify.failure('Sorry, there are no images matching your search query. Please try again.'); 
-            }
-            renderHTML(hits)
-        })
-    } catch {
+     .catch(function (error) {
 
-    }
-}
+        })
+   }
 
 function renderHTML(hits) {
 refs.hitsContainer.innerHTML = '';
@@ -68,8 +65,29 @@ const hitsEl = hits.map(({webformatURL, tags, likes, views, comments, downloads 
         </p>
       </div>
     </div>`
-});
+}).join('');
 
-refs.hitsContainer.insertAdjacentHTML('beforeend', hitsEl.join(''))
+refs.hitsContainer.insertAdjacentHTML('beforeend', hitsEl)
 }
 
+
+// function fetchImg({query}) {
+//     const urlAPI = `${BASE_URL}/?key=${API_KEY}&q=${query}&image_type=photo&orientation=horizontal&safesearch=true`;
+
+//     try {
+//         fetch(urlAPI).then(res => {
+//             if (!res.ok) {
+//                 Notiflix.Notify.warning('Pixabay error'); 
+//             }
+//              return res.json()
+//         })
+//         .then(({hits}) => {
+//             if (hits.length === 0) {
+//                 Notiflix.Notify.failure('Sorry, there are no images matching your search query. Please try again.'); 
+//             }
+//             renderHTML(hits)
+//         })
+//     } catch {
+
+//     }
+// }
