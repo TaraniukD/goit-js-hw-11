@@ -21,63 +21,37 @@ body {
   border-radius: 5px;
 }
 
-li {
-  list-style: none;
-}
-
-.countrylist_item {
+.gallery {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  width: 1200px;
+  margin: 0 auto;
+  padding: 7px;
+  gap: 10px
 }
 
-.countrylist_img {
-  width: 40px;
-  height: 50%;
+.gallery img {
+  width: 289px;
+  height: 200px;
 }
 
-.countrylist_text {
+.info {
+  display: flex;
   margin: 0;
-  margin-top: 5px;
-  margin-left: 15px;
-  font-weight: 700;
-font-size: 20px;
-line-height: 2;
-letter-spacing: 1;
+  padding: 0 15px;
+  justify-content: space-around;
+  text-align: center;
 }
-
-.info-conteiner{
-  display: inline-block;
-  padding: 10px 5px;
-  min-width: 400px;
-  border: 1px solid goldenrod;
-  border-radius: 5px;
-  background-color: beige;
+.info-item {
+  margin: 0;
+  max-width: 55px;
 }
-.countryInfo_img {
-  width: 75px;
+.info-item b {
+  font-weight: 600;
+  font-size: 13px;
 }
-
-.countryInfo_conteiner {
-  display: flex;
-  align-items: center;
-  margin-left: 40px;
-}
-.countryInfo_title {
-  margin-left: 15px;
-  font-weight: 700;
-font-size: 25px;
-letter-spacing: 1;
-}
-
-.countryInfo_item {
-margin-top: 5px;
-font-weight: 500;
-font-size: 17px;
-letter-spacing: 1;
-}
-
-.countryInfo_span {
-  margin-left: 10px;
+.info-span {
   font-weight: 400;
-font-size: 15px;
+  font-size: 11px;
 }

@@ -53,16 +53,16 @@ const hitsEl = hits.map(({webformatURL, largeImageURL, tags, likes, views, comme
       </a>
       <div class="info">
         <p class="info-item">
-          <b>Likes: ${likes}</b>
+          <b>Likes: <br/><span class="info-span">${likes}</span></b>
         </p>
         <p class="info-item">
-          <b>Views: ${views}</b>
+          <b>Views: <br/><span class="info-span">${views}</span></b>
         </p>
         <p class="info-item">
-          <b>Comments: ${comments}</b>
+          <b>Comments: <br/><span class="info-span">${comments}</span></b>
         </p>
         <p class="info-item">
-          <b>Downloads: ${downloads}</b>
+          <b>Downloads: <br/><span class="info-span">${downloads}</span></b>
         </p>
       </div>
     </div>`
@@ -80,16 +80,20 @@ let gallery = new SimpleLightbox('.gallery a', {
  });
 
 gallery.refresh()
+
 gallery.on('show.simplelightbox', function () {
 	// do something…
 });
+
+gallery.on('error.simplelightbox', function (e) {
+	console.log(e); // some usefull information
+});
+
 }
 
 
 
-// gallery.on('error.simplelightbox', function (e) {
-// 	console.log(e); // some usefull information
-// });
+
 
 
 // ----------- приклад без axios-----------------------------------
