@@ -21,6 +21,11 @@ body {
   border-radius: 5px;
 }
 
+.hiden {
+  display: none;
+  border: none;
+}
+
 .gallery {
   display: flex;
   align-items: center;
