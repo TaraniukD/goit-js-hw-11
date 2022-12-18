@@ -75,15 +75,17 @@ border-radius: 5px;
   align-items: center;
   flex-wrap: wrap;
   width: 1200px;
-  margin: 0 auto;
+  margin: 55px auto 0 auto;
   padding: 7px;
   gap: 10px
 }
+
 .photo-card {
   border: 1px solid gray;
   border-radius: 3px;
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
 }
+
 .gallery img {
   width: 287px;
   height: 180px;
